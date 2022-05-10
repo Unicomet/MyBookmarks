@@ -17,15 +17,15 @@
             android:id="@+id/ti_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
-            android:inputType="number"
+            android:hint="@string/edit_text_hint_title"
+            android:inputType="text"
             android:layout_marginBottom="20dp"/>
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ti_item_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description..."
+            android:hint="@string/edit_text_hint_description"
             android:inputType="textMultiLine"
             android:lines="14"
             android:maxLines="18"

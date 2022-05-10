@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.memo.mybookmarks.databinding.BookmarkListItemBinding
-import com.memo.mybookmarks.data.Bookmark
+import com.memo.mybookmarks.model.Bookmark
 
-class BookmarksItemsAdapter(private val dataset: MutableList<Bookmark>,
+class BookmarksItemsAdapter(private var dataset: MutableList<Bookmark>,
                             private val clickListener: (Int) -> Unit): RecyclerView.Adapter<BookmarksItemsAdapter.ViewHolder>() {
 
 
@@ -59,10 +59,11 @@ class BookmarksItemsAdapter(private val dataset: MutableList<Bookmark>,
         holder.bind(bookmark)
     }
 
-    fun updateList(){
-
+    fun updateList(bookmarksList:MutableList<Bookmark>){
+        dataset = bookmarksList
+        notifyDataSetChanged()
     }
 
-        override fun getItemCount(): Int = dataset.size
+    override fun getItemCount(): Int = dataset.size
 
 }

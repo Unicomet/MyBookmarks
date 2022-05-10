@@ -17,7 +17,7 @@
         android:id="@+id/title_bookmark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="@string/edit_text_hint_title"
         android:inputType="text"
         android:layout_marginBottom="20dp"/>
 
@@ -29,7 +29,7 @@
         android:lines="14"
         android:maxLines="18"
         android:inputType="textMultiLine"
-        android:hint="Description..."
+        android:hint="@string/edit_text_hint_description"
         />
 
     </LinearLayout>
