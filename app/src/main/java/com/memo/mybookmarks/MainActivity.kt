@@ -1,12 +1,17 @@
 package com.memo.mybookmarks
 
 
+import android.app.KeyguardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -26,6 +31,43 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
+        setupAuth()
+        authenticate({
+        })
+
+    }
+
+    private var canAuthenticate = false
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+
+    private fun setupAuth(){
+
+        val biometricManager = BiometricManager.from(this)
+        val keyGuardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        if(keyGuardManager.isDeviceSecure)
+            canAuthenticate = true
+
+            promptInfo = BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Autenticación")
+                .setSubtitle("Ingresa tu huella para acceder")
+                .setNegativeButtonText("Cancel")
+               .build()
+        }
+
+    private fun authenticate(auth: (auth:Boolean) -> Unit) {
+        if(canAuthenticate) {
+
+            BiometricPrompt(this,ContextCompat.getMainExecutor(this),
+                object: BiometricPrompt.AuthenticationCallback() {
+
+                    override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                        super.onAuthenticationSucceeded(result)
+                        auth(true)
+                    }
+                }).authenticate(promptInfo)
+        } else {
+            auth(true)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -62,5 +104,5 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
 }
+
