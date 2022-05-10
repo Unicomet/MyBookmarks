@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.memo.mybookmarks.adapter.BookmarksItemsAdapter
 import com.memo.mybookmarks.model.Bookmark
 import com.memo.mybookmarks.provider.PreferencesKey
 import com.memo.mybookmarks.provider.PreferencesProvider
@@ -13,6 +14,13 @@ class BookmarksViewModel: ViewModel() {
     //We should use object to use "singletone" design pattern??
     //I have to add dependency "Data binding" to Gradle
     private val preferencesProvider = PreferencesProvider
+    private lateinit var _recyclerViewAdapter: BookmarksItemsAdapter
+    val recyclerViewAdapter: BookmarksItemsAdapter
+        get() = _recyclerViewAdapter
+
+    fun setAdapter(adapter: BookmarksItemsAdapter){
+        _recyclerViewAdapter = adapter
+    }
 
     fun getBookmarks(context:Context): List<Bookmark> {
         val bookmarks = preferencesProvider.getList(context, PreferencesKey.LIST_BOOKMARKS)
@@ -34,5 +42,6 @@ class BookmarksViewModel: ViewModel() {
     fun addBookmark(context: Context,title: String, description: String ){
         preferencesProvider.addBookmark(context,PreferencesKey.LIST_BOOKMARKS, title, description)
     }
+
 
 }

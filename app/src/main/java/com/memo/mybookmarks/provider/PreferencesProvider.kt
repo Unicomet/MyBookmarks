@@ -58,7 +58,6 @@ object PreferencesProvider {
     }
 
 
-
     fun clear(context: Context){
         val editor = prefs(context).edit()
         editor.clear().apply()

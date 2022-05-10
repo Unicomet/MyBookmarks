@@ -29,7 +29,8 @@ class BookmarksListFragment : Fragment() {
     private var bookmarkSelectedIndex = 0
     private val sharedViewModel: BookmarksViewModel by activityViewModels()
     private lateinit var bookmarksList: MutableList<Bookmark>
-
+    private lateinit var dataset: MutableList<Bookmark>
+    private lateinit var recyclerViewAdapter: BookmarksItemsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,10 +51,10 @@ class BookmarksListFragment : Fragment() {
         recyclerView = binding.rvBookmarks
         recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
         //Getting list of Bookmarks from sharedpreferences for the recyclerView
-        var dataset = sharedViewModel.getBookmarks(this.requireContext())?.toMutableList()
+        dataset = sharedViewModel.getBookmarks(this.requireContext()).toMutableList()
         Log.d("preferences","data from preferences is charged")
         //We set the adapter for the recyclerView , with data obtained before
-        val recyclerViewAdapter = BookmarksItemsAdapter(dataset!!) { indexBookmark ->
+         recyclerViewAdapter = BookmarksItemsAdapter(dataset!!) { indexBookmark ->
             //Implement clickListener for list items
             //'indexBookmark' is the viewholder position and in consequence bookmark position too
 
@@ -65,6 +66,7 @@ class BookmarksListFragment : Fragment() {
             findNavController().navigate(action)
         }
         recyclerView.adapter = recyclerViewAdapter
+        sharedViewModel.setAdapter(recyclerViewAdapter)
         //We set an observer to bookmarksList of ViewModel
         /*sharedViewModel.getBookmarks().observe(viewLifecycleOwner) {
             When the data changes, the adapter of recyclerView
@@ -82,6 +84,10 @@ class BookmarksListFragment : Fragment() {
             Toast.makeText( this.requireContext(),"Creating a new bookmark", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    fun getAdapter(): BookmarksItemsAdapter {
+        return recyclerViewAdapter
     }
 
     override fun onDestroy() {
