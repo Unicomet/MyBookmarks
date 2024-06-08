@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    app:cardBackgroundColor="@color/blue_600"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="12dp">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_item_list_book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Book Title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_margin="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_item_list_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Me quede en la ultima parte cuando caperucita es rescatada por un cazador"
+                android:layout_margin="12dp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

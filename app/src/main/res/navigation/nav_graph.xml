@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/bookmarksListFragment">
+    <fragment
+        android:id="@+id/bookmarksListFragment"
+        android:name="com.memo.mybookmarks.BookmarksListFragment"
+        android:label="BookmarksListFragment" >
+        <action
+            android:id="@+id/action_bookmarksListFragment_to_createNewBookmarkFragment"
+            app:destination="@id/createNewBookmarkFragment" />
+        <action
+            android:id="@+id/action_bookmarksListFragment_to_editBookmarkFragment"
+            app:destination="@id/editBookmarkFragment" />
+        <argument
+            android:name="title_bookmark"
+            app:argType="string"
+            android:defaultValue="test_title" />
+        <argument
+            android:name="description_bookmark"
+            app:argType="string"
+            android:defaultValue="test_description" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewBookmarkFragment"
+        android:name="com.memo.mybookmarks.CreateNewBookmarkFragment"
+        android:label="CreateNewBookmarkFragment" >
+        <action
+            android:id="@+id/action_createNewBookmarkFragment_to_bookmarksListFragment"
+            app:destination="@id/bookmarksListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBookmarkFragment"
+        android:name="com.memo.mybookmarks.EditBookmarkFragment"
+        android:label="EditBookmarkFragment" >
+        <action
+            android:id="@+id/action_editBookmarkFragment_to_bookmarksListFragment"
+            app:destination="@id/bookmarksListFragment" />
+    </fragment>
+</navigation>

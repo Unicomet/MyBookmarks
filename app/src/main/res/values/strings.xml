@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Bookmarks</string>
+    <string name="add_bookmark">Add bookmark</string>
+    <string name="bookmark_title1">"Quimica 1 - Chang"</string>
+    <string name="bookmark_title2">"Quimica 2 - Chang"</string>
+    <string name="bookmark_title3">"Quimica 3 - Chang"</string>
+    <string name="bookmark_title4">"Quimica 4 - Chang"</string>
+    <string name="bookmark_title5">"Quimica 5 - Chang"</string>
+    <string name="bookmark_title6">"Quimica 6 - Chang"</string>
+    <string name="bookmark_title7">"Quimica 7 - Chang"</string>
+    <string name="bookmark_title8">"Quimica 8 - Chang"</string>
+    <string name="bookmark_description1">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description2">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description3">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description4">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description5">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description6">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description7">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <string name="bookmark_description8">"Existen diferentes modelos atómicos, cada uno con sus propias características. "</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
